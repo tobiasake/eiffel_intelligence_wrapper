@@ -2,12 +2,11 @@ pipeline {
   agent {
     docker {
       image 'emtrout/dind'
-      args 'sh source /docker-lib.sh'
     }
     
   }
   stages {
-    stage('') {
+    stage('error') {
       steps {
         sh '''source /docker-lib.sh
 start_docker
