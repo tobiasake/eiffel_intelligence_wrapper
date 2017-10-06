@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.example</groupId>
-    <artifactId>frontend</artifactId>
+    <groupId>com.emtrout</groupId>
+    <artifactId>eiffel_intelligence_wrapper</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
     <name>frontend demo</name>
@@ -32,7 +32,7 @@
     <dependencies>
         <dependency>
             <groupId>com.github.emichaf</groupId>
-            <artifactId>eiffel_intelligence_wrapper</artifactId>
+            <artifactId>eiffel_intelligence_test</artifactId>
             <version>-SNAPSHOT</version>
             <!--<version>v1.0.0-alpha</version>-->
         </dependency>
@@ -89,7 +89,7 @@
                             <artifactItems>
                                 <artifactItem>
                                     <groupId>com.github.emichaf</groupId>
-                                    <artifactId>eiffel_intelligence_wrapper</artifactId>
+                                    <artifactId>eiffel_intelligence_test</artifactId>
                                     <overWrite>true</overWrite>
                                     <outputDirectory>${basedir}/src/main/docker/maven</outputDirectory>
                                     <!--<destFileName>${project.artifactId}-${project.version}-${maven.build.timestamp}.jar</destFileName>-->
@@ -109,7 +109,7 @@
                 <configuration>
                     <images>
                         <image>
-                            <name>example/frontend:%l</name>
+                            <name>emtrout/eiffel_intelligence_wrapper:%l</name>
                             <build>
                                 <dockerFileDir>${basedir}/src/main/docker</dockerFileDir>
                             </build>
