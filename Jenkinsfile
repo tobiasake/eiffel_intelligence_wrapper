@@ -1,5 +1,5 @@
 pipeline {
-  agent {default}
+  agent {kubernetes}
   stages {
     stage('EI Test') {
       steps {
