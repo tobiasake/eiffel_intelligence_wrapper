@@ -1,11 +1,11 @@
 pipeline {
     agent {
-        docker { image 'node:7-alpine' }
+        docker { image 'emtrout/dind:latest' }
     }
     stages {
         stage('Test') {
             steps {
-                sh 'node --version'
+                sh 'docker images'
             }
         }
     }
