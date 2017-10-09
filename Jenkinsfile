@@ -1,3 +1,4 @@
+pipeline {
 node {
         checkout scm
         docker.image('emtrout/dind:latest').inside('-u root') {
@@ -6,3 +7,4 @@ node {
             sh 'docker images'
         }
     }
+}
