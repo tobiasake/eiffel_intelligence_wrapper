@@ -1,9 +1,0 @@
-node {
-    checkout scm
-
-    docker.withServer('tcp://192.168.188.90:2375') {
-        docker.image('node:7-alpine').withRun('-p 3306:3306') {
-            sh 'node --version'
-        }
-    }
-}
