@@ -1,5 +1,5 @@
 pipeline {
-  agent { kubernetes { name 'jnlp' } }
+  agent { kubernetes { containerTemplate 'jnlp' } }
   stages {
     stage('EI Test') {
       steps {
