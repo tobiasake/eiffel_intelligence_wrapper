@@ -1,20 +1,8 @@
-pipeline {
-  agent {
-    docker {
-      image 'emtrout/dind:latest'
+node {
+        checkout scm
+        docker.image('emtrout/dind:latest').inside('-u root') {
+            sh 'source /docker-lib.sh'
+            sh 'start_docker'
+            sh 'docker images'
+        }
     }
-    
-  }
-  stages {
-    stage('EI Test') {
-      steps {
-        sh '''
-source /docker-lib.sh
-start_docker
-docker images
-
-                   '''
-      }
-    }
-  }
-}
