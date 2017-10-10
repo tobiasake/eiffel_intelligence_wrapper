@@ -1,3 +1,4 @@
+pipeline {
 podTemplate(label: 'mypod', containers: [
     containerTemplate(name: 'docker', image: 'docker', ttyEnabled: true, command: 'cat'),
     containerTemplate(name: 'kubectl', image: 'lachlanevenson/k8s-kubectl:v1.8.0', command: 'cat', ttyEnabled: true),
@@ -38,22 +39,8 @@ podTemplate(label: 'mypod', containers: [
             }
         }
 
-        stage('do some helm work') {
-            container('helm') {
-            environment {
-                            KUBECONFIG = $KUBECONFIG
-                        }
-            withCredentials([[
-                $class: 'FileBinding',
-                credentialsId: '77bd756d-382a-4704-bb9c-9d52f023ac4d',
-                variable: 'KUBECONFIG'
-            ]]){
-                sh "export KUBECONFIG=$KUBECONFIG"
-                sh "helm ls"
-               }
-            }
 
-        }
 
     }
+ }
 }
