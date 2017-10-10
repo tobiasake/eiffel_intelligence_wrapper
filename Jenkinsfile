@@ -8,7 +8,7 @@ podTemplate(label: 'mypod', containers: [
     hostPathVolume(mountPath: '/var/run/docker.sock', hostPath: '/var/run/docker.sock'),
   ]) {
     node('mypod') {
-
+stages {
         stage('do some Docker work') {
             container('docker') {
 
@@ -40,7 +40,7 @@ podTemplate(label: 'mypod', containers: [
         }
 
 
-
+}
     }
  }
 }
