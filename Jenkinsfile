@@ -10,11 +10,21 @@ podTemplate(label: 'mypod', containers: [
 
 
         stage 'Build docker image'
-                container('docker') {
-                    sh """
-                        docker build -t ${imageTag} /src/main/docker
-                    """
+        container('docker') {
+                    // Store these credentials in Jenkins too
+                      withCredentials([[$class: 'UsernamePasswordMultiBinding',
+                                credentialsId: 'e7de4146-4a59-4406-916e-d10506cfaeb8',
+                                usernameVariable: 'DOCKER_HUB_USER',
+                                passwordVariable: 'DOCKER_HUB_PASSWORD']]) {
+
+                        sh """
+                           docker build -t ${imageTag} /src/main/docker
+
+                        """
+                    }
                 }
+
+
 
         stage 'Push image to the registry'
         container('docker') {
